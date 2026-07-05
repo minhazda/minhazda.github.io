@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="54" r="34" fill="#F08C2E"/>
+  <circle cx="26" cy="30" r="11" fill="#F08C2E"/><circle cx="74" cy="30" r="11" fill="#F08C2E"/>
+  <circle cx="26" cy="30" r="5" fill="#B33A08"/><circle cx="74" cy="30" r="5" fill="#B33A08"/>
+  <path d="M50 22 l-4 9 h8 z" fill="#1C1917"/>
+  <path d="M36 24 l-2 8 6-2 z" fill="#1C1917"/><path d="M64 24 l2 8 -6-2 z" fill="#1C1917"/>
+  <ellipse cx="50" cy="66" rx="15" ry="11" fill="#FFF6EC"/>
+  <circle cx="39" cy="50" r="4.5" fill="#1C1917"/><circle cx="61" cy="50" r="4.5" fill="#1C1917"/>
+  <circle cx="40.5" cy="48.5" r="1.5" fill="#fff"/><circle cx="62.5" cy="48.5" r="1.5" fill="#fff"/>
+  <path d="M50 60 l-4 5 h8 z" fill="#1C1917"/>
+  <path d="M50 65 q0 5 -6 5 M50 65 q0 5 6 5" stroke="#1C1917" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <path d="M16 54 q9 -2 14 1 M18 62 q8 -1 12 2" stroke="#1C1917" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path d="M84 54 q-9 -2 -14 1 M82 62 q-8 -1 -12 2" stroke="#1C1917" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+</svg>
