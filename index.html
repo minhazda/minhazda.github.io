@@ -12,229 +12,226 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FBF8F3;
-  --bg-soft:#F4EEE4;
-  --ink:#1C1917;
-  --ink-soft:#57534E;
-  --ink-faint:#8A8580;
-  --tiger:#D9480F;
-  --tiger-deep:#B33A08;
-  --tiger-soft:#FCE9DD;
-  --line:#E7E0D5;
-  --card:#FFFFFF;
+  --bg:#FAF5EE;
+  --bg-deep:#F2EADC;
+  --ink:#1B1613;
+  --ink-soft:#5C544B;
+  --ink-faint:#8F857A;
+  --tiger:#C2410C;
+  --tiger-deep:#9A3412;
+  --tiger-soft:#F8E7D8;
+  --amber:#E8930C;
+  --line:#E9DFD0;
+  --card:#FFFEFB;
   --ok:#1F7A4D;
-  --ok-soft:#E3F2EA;
-  --radius:16px;
-  --font-head:'Sora',system-ui,sans-serif;
+  --ok-soft:#E5F1EA;
+  --dark:#171310;
+  --font-head:'Fraunces',Georgia,serif;
   --font-body:'Inter',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg);
+  background:
+    radial-gradient(1100px 560px at 88% -8%, #F5E3CB 0%, rgba(245,227,203,0) 62%),
+    radial-gradient(900px 500px at -10% 24%, #F3ECDF 0%, rgba(243,236,223,0) 55%),
+    var(--bg);
   color:var(--ink);
   font-family:var(--font-body);
-  font-size:17px;
-  line-height:1.65;
+  font-size:16.5px;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--tiger);color:#fff}
 a{color:var(--tiger-deep);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 
 /* ---------- nav ---------- */
 nav{
   position:sticky;top:0;z-index:50;
-  background:rgba(251,248,243,.85);
-  backdrop-filter:blur(12px);
+  background:rgba(250,245,238,.82);
+  backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:700;font-size:17px;color:var(--ink)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{display:flex;align-items:center;gap:11px;font-family:var(--font-head);font-weight:600;font-size:18px;color:var(--ink);letter-spacing:.01em}
 .nav-brand:hover{text-decoration:none}
-.nav-brand svg{width:34px;height:34px}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--ink-soft);font-size:15px;font-weight:500}
+.nav-brand svg{width:34px;height:34px;border-radius:9px}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--ink-soft);font-size:14.5px;font-weight:500}
 .nav-links a:hover{color:var(--ink);text-decoration:none}
 .nav-cta{
-  background:var(--ink);color:#fff!important;
-  padding:8px 18px;border-radius:99px;font-weight:600;
+  background:var(--ink);color:#FAF5EE!important;
+  padding:9px 20px;border-radius:99px;font-weight:600;
   transition:background .2s;
 }
 .nav-cta:hover{background:var(--tiger-deep);text-decoration:none}
 
 /* ---------- hero ---------- */
-.hero{padding:88px 0 72px;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.hero{padding:104px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:64px;align-items:center}
 .eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:13.5px;font-weight:600;letter-spacing:.04em;
-  color:var(--tiger-deep);background:var(--tiger-soft);
-  padding:6px 14px;border-radius:99px;margin-bottom:22px;
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tiger-deep);margin-bottom:26px;
 }
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 h1{
-  font-family:var(--font-head);font-weight:800;
-  font-size:clamp(38px,5.4vw,58px);
-  line-height:1.08;letter-spacing:-.02em;margin-bottom:20px;
+  font-family:var(--font-head);font-weight:600;
+  font-size:clamp(42px,5.8vw,68px);
+  line-height:1.04;letter-spacing:-.01em;margin-bottom:26px;
 }
-h1 .accent{color:var(--tiger)}
-.hero-sub{font-size:19px;color:var(--ink-soft);max-width:56ch;margin-bottom:14px}
+h1 em{font-style:italic;color:var(--tiger)}
+.hero-sub{font-size:18.5px;color:var(--ink-soft);max-width:54ch;margin-bottom:16px}
 .hero-sub strong{color:var(--ink);font-weight:600}
-.hero-note{font-size:15px;color:var(--ink-faint);margin-bottom:32px}
+.hero-note{font-size:14.5px;color:var(--ink-faint);margin-bottom:38px;letter-spacing:.01em}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;gap:9px;
-  padding:13px 24px;border-radius:12px;font-weight:600;font-size:15.5px;
-  transition:transform .15s,box-shadow .15s,background .2s;
+  padding:13px 26px;border-radius:99px;font-weight:600;font-size:15px;
+  transition:transform .15s,box-shadow .15s,background .2s,border-color .2s;
 }
 .btn:hover{text-decoration:none;transform:translateY(-2px)}
-.btn svg{width:18px;height:18px;flex:none}
-.btn-primary{background:var(--tiger);color:#fff;box-shadow:0 4px 14px rgba(217,72,15,.28)}
-.btn-primary:hover{background:var(--tiger-deep);box-shadow:0 6px 18px rgba(217,72,15,.34)}
-.btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
-.btn-ghost:hover{border-color:var(--ink-faint);box-shadow:0 4px 12px rgba(28,25,23,.07)}
-.hero-mascot{position:relative;display:flex;justify-content:center}
-.hero-mascot svg{width:100%;max-width:340px;height:auto;filter:drop-shadow(0 18px 30px rgba(28,25,23,.12))}
-.mascot-tag{
-  position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
-  background:var(--card);border:1px solid var(--line);border-radius:99px;
-  padding:6px 16px;font-size:13.5px;color:var(--ink-soft);white-space:nowrap;
-  box-shadow:0 4px 12px rgba(28,25,23,.08);
+.btn svg{width:17px;height:17px;flex:none}
+.btn-primary{background:var(--tiger);color:#fff;box-shadow:0 6px 20px rgba(194,65,12,.26)}
+.btn-primary:hover{background:var(--tiger-deep);box-shadow:0 8px 24px rgba(154,52,18,.3)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid #D8CCBA}
+.btn-ghost:hover{border-color:var(--ink);background:var(--card)}
+.hero-mascot{display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero-mascot .mark{
+  width:100%;max-width:310px;height:auto;transform:rotate(-2.5deg);
+  border-radius:22%;
+  box-shadow:0 30px 60px -18px rgba(27,22,19,.35), 0 8px 20px rgba(27,22,19,.12);
 }
+.mascot-tag{font-size:14px;color:var(--ink-faint)}
 .mascot-tag b{color:var(--tiger-deep)}
 
 /* ---------- section scaffolding ---------- */
-section{padding:76px 0}
-.sec-head{margin-bottom:44px;max-width:62ch}
+section{padding:88px 0}
+.sec-head{margin-bottom:52px;max-width:64ch}
 .sec-kicker{
-  font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tiger-deep);margin-bottom:10px;display:flex;align-items:center;gap:10px;
+  font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tiger-deep);margin-bottom:14px;display:flex;align-items:baseline;gap:12px;
 }
-.sec-kicker::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--tiger)}
-h2{font-family:var(--font-head);font-weight:700;font-size:clamp(28px,3.4vw,38px);letter-spacing:-.015em;line-height:1.15;margin-bottom:14px}
-.sec-sub{color:var(--ink-soft);font-size:17.5px}
+.sec-kicker .num{font-family:var(--font-head);font-style:italic;font-size:15px;color:var(--amber)}
+h2{font-family:var(--font-head);font-weight:600;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.005em;line-height:1.12;margin-bottom:16px}
+h2 em{font-style:italic;color:var(--tiger)}
+.sec-sub{color:var(--ink-soft);font-size:17px}
 
 /* ---------- what I do ---------- */
-.do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .do-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px 26px;transition:transform .18s,box-shadow .18s;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:32px 28px;transition:transform .18s,box-shadow .18s;
+  position:relative;overflow:hidden;
 }
-.do-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(28,25,23,.08)}
-.do-icon{
-  width:46px;height:46px;border-radius:12px;background:var(--tiger-soft);
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-}
-.do-icon svg{width:24px;height:24px;stroke:var(--tiger-deep)}
-.do-card h3{font-family:var(--font-head);font-size:19px;font-weight:700;margin-bottom:10px}
-.do-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:16px}
+.do-card::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:linear-gradient(90deg,var(--tiger),var(--amber));opacity:0;transition:opacity .18s}
+.do-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -12px rgba(27,22,19,.14)}
+.do-card:hover::before{opacity:1}
+.do-num{font-family:var(--font-head);font-style:italic;font-size:15px;color:var(--amber);display:block;margin-bottom:14px}
+.do-card h3{font-family:var(--font-head);font-size:21px;font-weight:600;margin-bottom:10px}
+.do-card p{font-size:15px;color:var(--ink-soft);margin-bottom:18px}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{
-  font-size:12.5px;font-weight:600;color:var(--ink-soft);
-  background:var(--bg-soft);border-radius:7px;padding:4px 10px;
+  font-size:12px;font-weight:500;color:var(--ink-soft);
+  background:var(--bg-deep);border-radius:99px;padding:4px 12px;
 }
 
 /* ---------- work ---------- */
-#work{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:52px}
+#work{background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:56px}
 .work-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:30px 28px;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:32px 30px;display:flex;flex-direction:column;
   transition:transform .18s,box-shadow .18s;
 }
-.work-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(28,25,23,.09)}
+.work-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -14px rgba(27,22,19,.16)}
 .work-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.work-card h3{font-family:var(--font-head);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.work-card h3{font-family:var(--font-head);font-size:22px;font-weight:600}
 .badge{
   flex:none;display:inline-flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:700;letter-spacing:.05em;
-  padding:4px 11px;border-radius:99px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  padding:5px 12px;border-radius:99px;
 }
 .badge-live{background:var(--ok-soft);color:var(--ok)}
-.badge-live .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulse 2.4s infinite}
-.badge-code{background:var(--bg-soft);color:var(--ink-soft)}
-.work-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:18px;flex:1}
-.metrics{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.badge-live .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulse 2.6s infinite}
+.badge-code{background:var(--bg-deep);color:var(--ink-faint)}
+.work-card p{font-size:15px;color:var(--ink-soft);margin-bottom:20px;flex:1}
+.metrics{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .metric{
-  font-size:13px;font-weight:700;color:var(--tiger-deep);
-  background:var(--tiger-soft);border-radius:8px;padding:5px 11px;
+  font-size:12.5px;font-weight:600;color:var(--tiger-deep);
+  background:var(--tiger-soft);border-radius:99px;padding:5px 13px;
 }
-.work-links{display:flex;gap:18px;border-top:1px solid var(--line);padding-top:16px}
-.work-links a{font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
-.work-links a svg{width:15px;height:15px}
+.work-links{display:flex;gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.work-links a{font-size:14px;font-weight:600}
 .more-head{
-  font-family:var(--font-head);font-size:15px;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;
+  font-family:var(--font-head);font-style:italic;font-size:17px;font-weight:600;
+  color:var(--ink-faint);margin-bottom:20px;
 }
 .more-list{display:grid;gap:12px}
 .more-item{
-  display:flex;align-items:center;gap:18px;justify-content:space-between;
-  background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:16px 22px;transition:border-color .18s,box-shadow .18s;color:var(--ink);
+  display:flex;align-items:center;gap:20px;justify-content:space-between;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:18px 24px;transition:border-color .18s,box-shadow .18s;color:var(--ink);
 }
-.more-item:hover{text-decoration:none;border-color:var(--tiger);box-shadow:0 6px 16px rgba(28,25,23,.06)}
-.more-name{font-weight:600;font-size:15.5px;font-family:var(--font-head);flex:none}
-.more-desc{color:var(--ink-soft);font-size:14.5px;flex:1}
+.more-item:hover{text-decoration:none;border-color:var(--tiger);box-shadow:0 8px 20px -6px rgba(27,22,19,.1)}
+.more-name{font-weight:600;font-size:15px;font-family:var(--font-head);flex:none}
+.more-desc{color:var(--ink-soft);font-size:14px;flex:1}
 .more-arrow{color:var(--tiger-deep);font-weight:700;flex:none}
 
 /* ---------- mascot ---------- */
-.bagh-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
-.bagh-figure{position:relative;display:flex;justify-content:center}
-.bagh-figure svg{width:100%;max-width:300px;height:auto}
-.bagh-card{
-  background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:36px 36px 30px;position:relative;
+.bagh-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:64px;align-items:center}
+.bagh-figure{display:flex;flex-direction:column;align-items:center;gap:18px}
+.bagh-figure .mark{
+  width:100%;max-width:290px;height:auto;transform:rotate(2deg);
+  border-radius:22%;
+  box-shadow:0 30px 60px -18px rgba(27,22,19,.35), 0 8px 20px rgba(27,22,19,.12);
 }
-.bagh-card::before{
-  content:"";position:absolute;left:-10px;top:48px;width:20px;height:20px;
-  background:var(--card);border-left:1px solid var(--line);border-bottom:1px solid var(--line);
-  transform:rotate(45deg);
-}
-.bagh-name{font-family:var(--font-head);font-size:26px;font-weight:800;margin-bottom:4px}
-.bagh-name .accent{color:var(--tiger)}
-.bagh-role{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
-.bagh-card p{font-size:15.5px;color:var(--ink-soft);margin-bottom:14px}
-.bagh-traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
-.trait{font-size:13px;font-weight:600;background:var(--tiger-soft);color:var(--tiger-deep);border-radius:99px;padding:5px 13px}
+.bagh-caption{font-family:var(--font-head);font-style:italic;font-size:15px;color:var(--ink-faint);text-align:center}
+.bagh-name{font-family:var(--font-head);font-size:30px;font-weight:600;margin-bottom:4px}
+.bagh-name .bn{color:var(--tiger);font-weight:500}
+.bagh-role{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+.bagh-body p{font-size:15.5px;color:var(--ink-soft);margin-bottom:15px}
+.bagh-body p strong{color:var(--ink)}
+.bagh-traits{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.trait{font-size:12.5px;font-weight:600;background:var(--tiger-soft);color:var(--tiger-deep);border-radius:99px;padding:5px 14px}
 .bagh-quote{
-  margin-top:18px;font-style:italic;color:var(--ink);font-size:16px;
-  border-left:3px solid var(--tiger);padding-left:14px;
+  margin-top:22px;font-family:var(--font-head);font-style:italic;font-size:19px;
+  color:var(--ink);border-left:3px solid var(--tiger);padding-left:16px;line-height:1.5;
 }
 
 /* ---------- contact ---------- */
-#contact{background:var(--ink);color:#F5F0E8;border-radius:28px;margin:76px auto;max-width:1060px;padding:72px 56px;position:relative;overflow:hidden}
-#contact .stripe{position:absolute;right:-40px;top:-40px;opacity:.08;width:340px;height:340px}
-#contact .sec-kicker{color:#F79A6B}
-#contact .sec-kicker::before{background:#F79A6B}
-#contact h2{color:#fff}
-#contact .sec-sub{color:#C9C2B8;max-width:52ch}
-#contact .cta-row{margin-top:34px}
-#contact .btn-ghost{background:transparent;color:#F5F0E8;border-color:#4A443E}
-#contact .btn-ghost:hover{border-color:#F79A6B;color:#fff}
-.contact-email{margin-top:26px;font-size:15px;color:#8A8580}
-.contact-email a{color:#F79A6B;font-weight:600}
+#contact{background:var(--dark);color:#F1EAE0;border-radius:30px;margin:88px auto;max-width:1080px;padding:80px 64px;position:relative;overflow:hidden}
+#contact .glow{position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(232,147,12,.16) 0%,transparent 70%)}
+#contact .sec-kicker{color:var(--amber)}
+#contact h2{color:#FBF6EE}
+#contact .sec-sub{color:#B8AC9C;max-width:54ch}
+#contact .cta-row{margin-top:38px}
+#contact .btn-ghost{background:transparent;color:#F1EAE0;border-color:#463C32}
+#contact .btn-ghost:hover{border-color:var(--amber);color:#fff;background:transparent}
+.contact-email{margin-top:28px;font-size:14.5px;color:#8F8172}
+.contact-email a{color:var(--amber);font-weight:600}
 
 /* ---------- footer ---------- */
-footer{padding:0 0 44px;text-align:center;color:var(--ink-faint);font-size:14px}
-footer .paw{color:var(--tiger);font-weight:700}
+footer{padding:0 0 48px;text-align:center;color:var(--ink-faint);font-size:13.5px}
+footer em{font-family:var(--font-head);color:var(--tiger-deep)}
 
 /* ---------- responsive ---------- */
-@media(max-width:860px){
-  .hero{padding:56px 0 56px}
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  .hero-mascot svg{max-width:250px}
+@media(max-width:880px){
+  .hero{padding:64px 0}
+  .hero-grid{grid-template-columns:1fr;gap:52px}
+  .hero-mascot .mark{max-width:240px}
   .do-grid{grid-template-columns:1fr}
   .work-grid{grid-template-columns:1fr}
-  .bagh-grid{grid-template-columns:1fr;gap:40px}
-  .bagh-card::before{display:none}
+  .bagh-grid{grid-template-columns:1fr;gap:44px}
+  .bagh-figure .mark{max-width:230px}
   .nav-links a:not(.nav-cta){display:none}
-  #contact{padding:52px 28px;margin:56px 16px;border-radius:20px}
+  #contact{padding:56px 30px;margin:64px 18px;border-radius:24px}
   .more-item{flex-wrap:wrap;gap:6px}
   .more-desc{flex-basis:100%}
 }
@@ -242,23 +239,40 @@ footer .paw{color:var(--tiger);font-weight:700}
 </head>
 <body>
 
+<!-- Bagh emblem, defined once -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bagh-mark" viewBox="0 0 240 240">
+    <rect x="0" y="0" width="240" height="240" rx="54" fill="#1B1613"/>
+    <path d="M34 216 L60 202 L80 208 L106 190" stroke="#E8930C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+    <path d="M134 218 L160 204 L182 210 L208 190" stroke="#E8930C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="208" cy="190" r="6" fill="#E8930C"/>
+    <path d="M62 78 L86 36 L108 64 Z" fill="#E8730E"/>
+    <path d="M178 78 L154 36 L132 64 Z" fill="#E8730E"/>
+    <path d="M74 70 L86 50 L97 62 Z" fill="#B2470B"/>
+    <path d="M166 70 L154 50 L143 62 Z" fill="#B2470B"/>
+    <rect x="45" y="56" width="150" height="134" rx="58" fill="#E8730E"/>
+    <path d="M120 64 L111 90 H129 Z" fill="#1B1613"/>
+    <path d="M95 69 L89 90 L106 83 Z" fill="#1B1613"/>
+    <path d="M145 69 L151 90 L134 83 Z" fill="#1B1613"/>
+    <path d="M46 102 L84 111 L46 121 Z" fill="#1B1613"/>
+    <path d="M50 132 L82 137 L50 146 Z" fill="#1B1613"/>
+    <path d="M194 102 L156 111 L194 121 Z" fill="#1B1613"/>
+    <path d="M190 132 L158 137 L190 146 Z" fill="#1B1613"/>
+    <path d="M76 117 Q90 106 104 117 Q90 125 76 117 Z" fill="#1B1613"/>
+    <path d="M136 117 Q150 106 164 117 Q150 125 136 117 Z" fill="#1B1613"/>
+    <circle cx="97" cy="114" r="2.6" fill="#FBEBD7"/>
+    <circle cx="157" cy="114" r="2.6" fill="#FBEBD7"/>
+    <ellipse cx="120" cy="159" rx="32" ry="22" fill="#FBEBD7"/>
+    <path d="M120 149 L110 160 H130 Z" fill="#1B1613"/>
+    <path d="M120 160 v8" stroke="#1B1613" stroke-width="3" stroke-linecap="round"/>
+    <path d="M120 168 q-7 8 -16 6 M120 168 q7 8 16 6" stroke="#1B1613" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
 <nav>
   <div class="wrap nav-inner">
     <a class="nav-brand" href="#top" aria-label="Home">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="54" r="34" fill="#F08C2E"/>
-        <circle cx="26" cy="30" r="11" fill="#F08C2E"/><circle cx="74" cy="30" r="11" fill="#F08C2E"/>
-        <circle cx="26" cy="30" r="5" fill="#B33A08"/><circle cx="74" cy="30" r="5" fill="#B33A08"/>
-        <path d="M50 22 l-4 9 h8 z" fill="#1C1917"/>
-        <path d="M36 24 l-2 8 6-2 z" fill="#1C1917"/><path d="M64 24 l2 8 -6-2 z" fill="#1C1917"/>
-        <ellipse cx="50" cy="66" rx="15" ry="11" fill="#FFF6EC"/>
-        <circle cx="39" cy="50" r="4.5" fill="#1C1917"/><circle cx="61" cy="50" r="4.5" fill="#1C1917"/>
-        <circle cx="40.5" cy="48.5" r="1.5" fill="#fff"/><circle cx="62.5" cy="48.5" r="1.5" fill="#fff"/>
-        <path d="M50 60 l-4 5 h8 z" fill="#1C1917"/>
-        <path d="M50 65 q0 5 -6 5 M50 65 q0 5 6 5" stroke="#1C1917" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <path d="M16 54 q9 -2 14 1 M18 62 q8 -1 12 2" stroke="#1C1917" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-        <path d="M84 54 q-9 -2 -14 1 M82 62 q-8 -1 -12 2" stroke="#1C1917" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-      </svg>
+      <svg aria-hidden="true"><use href="#bagh-mark"/></svg>
       Minhazur Rahman
     </a>
     <div class="nav-links">
@@ -273,10 +287,10 @@ footer .paw{color:var(--tiger);font-weight:700}
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>Open to DS / ML Engineer roles — Netherlands &amp; Germany</span>
-      <h1>I build machine-learning systems that actually <span class="accent">ship</span>.</h1>
+      <span class="eyebrow"><span class="dot"></span>Open to DS / ML roles · Netherlands &amp; Germany</span>
+      <h1>Machine learning that actually <em>ships</em>.</h1>
       <p class="hero-sub">I'm <strong>Minhazur Rahman</strong> — a data scientist &amp; ML engineer who takes models out of notebooks and into production: <strong>typed, tested, monitored, and live on the cloud</strong>.</p>
-      <p class="hero-note">3+ years data &amp; infrastructure background · MSc Data Science (University of Greenwich) · Chattogram, Bangladesh → relocation-ready</p>
+      <p class="hero-note">3+ years data &amp; infrastructure background · MSc Data Science, University of Greenwich · Chattogram, Bangladesh → relocation-ready</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:minhazurrahman.ds@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
@@ -293,47 +307,8 @@ footer .paw{color:var(--tiger);font-weight:700}
       </div>
     </div>
     <div class="hero-mascot">
-      <svg viewBox="0 0 320 320" aria-label="Bagh the tiger, mascot" role="img">
-        <!-- trend line behind -->
-        <path d="M30 258 L85 218 L130 236 L205 152 L282 88" stroke="#E7E0D5" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="282" cy="88" r="8" fill="#D9480F"/>
-        <!-- body -->
-        <ellipse cx="160" cy="240" rx="72" ry="52" fill="#F08C2E"/>
-        <ellipse cx="160" cy="252" rx="42" ry="34" fill="#FFF6EC"/>
-        <!-- body stripes -->
-        <path d="M100 222 q10 8 8 22 M220 222 q-10 8 -8 22" stroke="#1C1917" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <!-- tail -->
-        <path d="M228 252 q42 6 40 -34" stroke="#F08C2E" stroke-width="16" fill="none" stroke-linecap="round"/>
-        <circle cx="268" cy="218" r="10" fill="#1C1917"/>
-        <!-- head -->
-        <circle cx="160" cy="140" r="76" fill="#F08C2E"/>
-        <!-- ears -->
-        <circle cx="106" cy="84" r="24" fill="#F08C2E"/><circle cx="214" cy="84" r="24" fill="#F08C2E"/>
-        <circle cx="106" cy="84" r="11" fill="#B33A08"/><circle cx="214" cy="84" r="11" fill="#B33A08"/>
-        <!-- head stripes -->
-        <path d="M160 68 l-9 20 h18 z" fill="#1C1917"/>
-        <path d="M130 72 l-4 17 12-5 z" fill="#1C1917"/>
-        <path d="M190 72 l4 17 -12-5 z" fill="#1C1917"/>
-        <path d="M88 132 q18 -4 28 2 M92 150 q16 -2 24 4" stroke="#1C1917" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path d="M232 132 q-18 -4 -28 2 M228 150 q-16 -2 -24 4" stroke="#1C1917" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <!-- cheeks/muzzle -->
-        <ellipse cx="160" cy="166" rx="34" ry="26" fill="#FFF6EC"/>
-        <!-- eyes -->
-        <circle cx="136" cy="132" r="10" fill="#1C1917"/><circle cx="184" cy="132" r="10" fill="#1C1917"/>
-        <circle cx="139" cy="129" r="3.4" fill="#fff"/><circle cx="187" cy="129" r="3.4" fill="#fff"/>
-        <!-- nose + mouth -->
-        <path d="M160 152 l-8 10 h16 z" fill="#1C1917"/>
-        <path d="M160 162 q0 10 -12 10 M160 162 q0 10 12 10" stroke="#1C1917" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <!-- whiskers -->
-        <path d="M116 158 h-20 M118 170 h-16" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-        <path d="M204 158 h20 M202 170 h16" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-        <!-- paws -->
-        <ellipse cx="120" cy="286" rx="22" ry="14" fill="#F08C2E"/>
-        <ellipse cx="200" cy="286" rx="22" ry="14" fill="#F08C2E"/>
-        <path d="M113 282 v8 M120 280 v10 M127 282 v8" stroke="#B33A08" stroke-width="3" stroke-linecap="round"/>
-        <path d="M193 282 v8 M200 280 v10 M207 282 v8" stroke="#B33A08" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-      <span class="mascot-tag">That's <b>Bagh</b> — he checks my forecasts. <a href="#bagh">Meet him ↓</a></span>
+      <svg class="mark" viewBox="0 0 240 240" role="img" aria-label="Bagh, the tiger emblem"><use href="#bagh-mark"/></svg>
+      <span class="mascot-tag">That's <b>Bagh</b> — he signs off on every forecast. <a href="#bagh">Meet him ↓</a></span>
     </div>
   </div>
 </header>
@@ -341,25 +316,25 @@ footer .paw{color:var(--tiger);font-weight:700}
 <section id="about">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">What I make &amp; do</div>
-      <h2>From messy data to a monitored endpoint.</h2>
+      <div class="sec-kicker"><span class="num">01</span>What I make &amp; do</div>
+      <h2>From messy data to a <em>monitored</em> endpoint.</h2>
       <p class="sec-sub">Every project I ship clears the same bar: typed with mypy, tested with pytest, linted, CI-gated, containerised — and every metric comes from a real run, never a fabricated number.</p>
     </div>
     <div class="do-grid">
       <div class="do-card">
-        <div class="do-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 4 3 5-8"/></svg></div>
+        <span class="do-num">i.</span>
         <h3>Forecasting &amp; applied ML</h3>
         <p>Demand forecasting, fraud detection, and experimentation — honest baselines first, then models that have to beat them to earn a deploy.</p>
         <div class="chips"><span class="chip">LightGBM</span><span class="chip">PyTorch</span><span class="chip">Time series</span><span class="chip">A/B &amp; CUPED</span><span class="chip">scikit-learn</span></div>
       </div>
       <div class="do-card">
-        <div class="do-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+        <span class="do-num">ii.</span>
         <h3>Production ML engineering</h3>
         <p>Models served as real APIs on real infrastructure — infrastructure as code, keyless CI/CD, Prometheus metrics, and drift monitoring included.</p>
         <div class="chips"><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Terraform</span><span class="chip">GCP Cloud Run</span><span class="chip">Kubernetes</span><span class="chip">GitHub Actions</span></div>
       </div>
       <div class="do-card">
-        <div class="do-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
+        <span class="do-num">iii.</span>
         <h3>Data platforms &amp; streaming</h3>
         <p>Orchestrated pipelines and real-time scoring — asset-based DAGs, tested warehouse models, and Kafka consumers measured end-to-end in CI.</p>
         <div class="chips"><span class="chip">Kafka / Redpanda</span><span class="chip">Dagster</span><span class="chip">dbt</span><span class="chip">DuckDB</span><span class="chip">SQL</span><span class="chip">Grafana</span></div>
@@ -371,8 +346,8 @@ footer .paw{color:var(--tiger);font-weight:700}
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">Best work</div>
-      <h2>Proof, not promises.</h2>
+      <div class="sec-kicker"><span class="num">02</span>Best work</div>
+      <h2>Proof, not <em>promises</em>.</h2>
       <p class="sec-sub">Two of these are live on Google Cloud right now — click through and score a transaction or forecast demand yourself. Every number below comes from a real, reproducible run.</p>
     </div>
 
@@ -380,7 +355,7 @@ footer .paw{color:var(--tiger);font-weight:700}
       <article class="work-card">
         <div class="work-top">
           <h3>Fraud Detection API</h3>
-          <span class="badge badge-live"><span class="dot"></span>LIVE DEMO</span>
+          <span class="badge badge-live"><span class="dot"></span>LIVE</span>
         </div>
         <p>Card-fraud detection on heavily imbalanced data: leakage-safe features shared between training and serving, threshold tuned on a held-out set, served with FastAPI + Prometheus and deployed to Cloud Run via Terraform.</p>
         <div class="metrics"><span class="metric">ROC-AUC 0.90</span><span class="metric">PR-AUC ~8× base rate</span><span class="metric">Terraform → Cloud Run</span></div>
@@ -393,7 +368,7 @@ footer .paw{color:var(--tiger);font-weight:700}
       <article class="work-card">
         <div class="work-top">
           <h3>Retail Forecasting API</h3>
-          <span class="badge badge-live"><span class="dot"></span>LIVE DEMO</span>
+          <span class="badge badge-live"><span class="dot"></span>LIVE</span>
         </div>
         <p>End-to-end demand-forecasting MLOps pipeline: typed, tested, CI-gated, containerised, with Prometheus metrics and Evidently drift monitoring — deployed keylessly to Cloud Run through Workload Identity Federation.</p>
         <div class="metrics"><span class="metric">MAE −40.8% vs baseline</span><span class="metric">Drift monitoring</span><span class="metric">Keyless CI/CD</span></div>
@@ -428,7 +403,7 @@ footer .paw{color:var(--tiger);font-weight:700}
       </article>
     </div>
 
-    <div class="more-head">More from the workshop</div>
+    <div class="more-head">More from the workshop —</div>
     <div class="more-list">
       <a class="more-item" href="https://github.com/minhazda/real-retail-forecasting" target="_blank" rel="noopener">
         <span class="more-name">real-retail-forecasting</span>
@@ -452,60 +427,19 @@ footer .paw{color:var(--tiger);font-weight:700}
 <section id="bagh">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">Brand mascot</div>
-      <h2>Meet Bagh, the forecasting tiger.</h2>
+      <div class="sec-kicker"><span class="num">03</span>Brand mascot</div>
+      <h2>Meet Bagh, the <em>forecasting</em> tiger.</h2>
     </div>
     <div class="bagh-grid">
       <div class="bagh-figure">
-        <svg viewBox="0 0 320 320" aria-label="Bagh the tiger proudly holding a small rising trend chart" role="img">
-          <!-- body -->
-          <ellipse cx="160" cy="240" rx="72" ry="52" fill="#F08C2E"/>
-          <ellipse cx="160" cy="252" rx="42" ry="34" fill="#FFF6EC"/>
-          <!-- tail -->
-          <path d="M228 252 q42 6 40 -34" stroke="#F08C2E" stroke-width="16" fill="none" stroke-linecap="round"/>
-          <circle cx="268" cy="218" r="10" fill="#1C1917"/>
-          <!-- head -->
-          <circle cx="160" cy="140" r="76" fill="#F08C2E"/>
-          <circle cx="106" cy="84" r="24" fill="#F08C2E"/><circle cx="214" cy="84" r="24" fill="#F08C2E"/>
-          <circle cx="106" cy="84" r="11" fill="#B33A08"/><circle cx="214" cy="84" r="11" fill="#B33A08"/>
-          <path d="M160 68 l-9 20 h18 z" fill="#1C1917"/>
-          <path d="M130 72 l-4 17 12-5 z" fill="#1C1917"/>
-          <path d="M190 72 l4 17 -12-5 z" fill="#1C1917"/>
-          <path d="M88 132 q18 -4 28 2 M92 150 q16 -2 24 4" stroke="#1C1917" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M232 132 q-18 -4 -28 2 M228 150 q-16 -2 -24 4" stroke="#1C1917" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <ellipse cx="160" cy="166" rx="34" ry="26" fill="#FFF6EC"/>
-          <!-- eyes glancing down at the chart -->
-          <circle cx="136" cy="134" r="10" fill="#1C1917"/><circle cx="184" cy="134" r="10" fill="#1C1917"/>
-          <circle cx="138" cy="132" r="3.4" fill="#fff"/><circle cx="186" cy="132" r="3.4" fill="#fff"/>
-          <!-- nose + smile -->
-          <path d="M160 152 l-8 10 h16 z" fill="#1C1917"/>
-          <path d="M160 162 q0 10 -12 10 M160 162 q0 10 12 10" stroke="#1C1917" stroke-width="5" fill="none" stroke-linecap="round"/>
-          <!-- whiskers -->
-          <path d="M116 158 h-20 M118 170 h-16" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-          <path d="M204 158 h20 M202 170 h16" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-          <!-- feet -->
-          <ellipse cx="120" cy="286" rx="22" ry="14" fill="#F08C2E"/>
-          <ellipse cx="200" cy="286" rx="22" ry="14" fill="#F08C2E"/>
-          <path d="M113 282 v8 M120 280 v10 M127 282 v8" stroke="#B33A08" stroke-width="3" stroke-linecap="round"/>
-          <path d="M193 282 v8 M200 280 v10 M207 282 v8" stroke="#B33A08" stroke-width="3" stroke-linecap="round"/>
-          <!-- little trend chart he's holding -->
-          <g transform="rotate(-3 160 240)">
-            <rect x="112" y="208" width="96" height="64" rx="10" fill="#FFFFFF" stroke="#E7E0D5" stroke-width="2"/>
-            <path d="M124 258 L140 244 L154 250 L172 230 L192 222" stroke="#D9480F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="192" cy="222" r="5" fill="#D9480F"/>
-          </g>
-          <!-- paws holding the chart -->
-          <ellipse cx="110" cy="242" rx="15" ry="12" fill="#F08C2E"/>
-          <ellipse cx="210" cy="242" rx="15" ry="12" fill="#F08C2E"/>
-          <path d="M105 238 v8 M110 236 v10 M115 238 v8" stroke="#B33A08" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M205 238 v8 M210 236 v10 M215 238 v8" stroke="#B33A08" stroke-width="2.6" stroke-linecap="round"/>
-        </svg>
+        <svg class="mark" viewBox="0 0 240 240" role="img" aria-label="Bagh the tiger emblem, watching a rising trend line"><use href="#bagh-mark"/></svg>
+        <span class="bagh-caption">Always watching the trend line.</span>
       </div>
-      <div class="bagh-card">
-        <div class="bagh-name">Bagh <span class="accent">/ বাঘ /</span></div>
-        <div class="bagh-role">Chief Forecasting Officer · resident sceptic</div>
-        <p><strong>The backstory.</strong> Bagh grew up in the Sundarbans, where a tiger survives by reading patterns — tides, moonlight, the movement of deer. He was the only cub who kept notes. One monsoon season he predicted the river's flood peak three days early, and the whole forest started coming to him with questions about the future.</p>
-        <p>Word travels. These days Bagh works alongside me in Chattogram, where he's traded stalking prey for stalking anomalies. He reviews every model before it ships and has vetoed more than one.</p>
+      <div class="bagh-body">
+        <div class="bagh-name">Bagh <span class="bn">· বাঘ</span></div>
+        <div class="bagh-role">Chief Forecasting Officer · Resident Sceptic</div>
+        <p><strong>The backstory.</strong> Bagh grew up in the Sundarbans, where a tiger survives by reading patterns — tides, moonlight, the movement of deer. He was the only one who kept notes. One monsoon season he called the river's flood peak three days early, and the whole forest started coming to him with questions about the future.</p>
+        <p>These days he works alongside me in Chattogram, where he's traded stalking prey for stalking anomalies. He reviews every model before it ships — and he has vetoed more than one.</p>
         <p><strong>The personality.</strong> Calm, patient, quietly confident — and completely allergic to hype. He doesn't believe a metric until he's seen the run that produced it, and he never trusts a model that hasn't beaten an honest baseline. If a forecast looks too good, Bagh assumes it's leakage.</p>
         <div class="bagh-traits">
           <span class="trait">Patient stalker of anomalies</span>
@@ -520,8 +454,8 @@ footer .paw{color:var(--tiger);font-weight:700}
 </section>
 
 <section id="contact">
-  <svg class="stripe" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 90 Q30 40 20 10 M40 95 Q60 45 50 5 M70 98 Q90 50 80 8" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
-  <div class="sec-kicker">One clear call to action</div>
+  <div class="glow"></div>
+  <div class="sec-kicker"><span class="num">04</span>One clear call to action</div>
   <h2>Hiring for data science or ML engineering?</h2>
   <p class="sec-sub">I'm actively looking for Data Scientist / ML Engineer roles in the Netherlands and Germany (visa: HSM / EU Blue Card, relocation-ready). If my work looks like what your team ships, let's talk — I reply within a day.</p>
   <div class="cta-row">
@@ -536,7 +470,7 @@ footer .paw{color:var(--tiger);font-weight:700}
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Minhazur Rahman · Built with plain HTML &amp; CSS, zero frameworks, and one very patient tiger <span class="paw">🐾</span></div>
+  <div class="wrap">© 2026 Minhazur Rahman · Plain HTML &amp; CSS, zero frameworks — <em>reviewed and approved by Bagh</em></div>
 </footer>
 
 </body>
