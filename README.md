@@ -4,9 +4,9 @@ Personal brand site for **Minhazur Rahman** — Data Scientist & ML Engineer.
 
 Live at **https://minhazda.github.io**
 
-- Plain HTML + CSS, zero frameworks, zero build step
+- Plain HTML + CSS + vanilla JS, zero frameworks, zero build step
 - Hosted free on GitHub Pages
-- Featuring **Bagh** (বাঘ), the forecasting Bengal tiger — hand-drawn inline SVG
+- Dark terminal aesthetic: animated typed terminal in the hero, scroll reveals, skill marquee
 
 ## Local preview
 

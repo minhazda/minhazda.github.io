@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Minhazur Rahman — Data Scientist & ML Engineer</title>
-<meta name="description" content="Minhazur Rahman builds machine-learning systems that ship — forecasting, fraud detection, and streaming ML, live on the cloud. Meet Bagh, the forecasting tiger.">
+<meta name="description" content="Minhazur Rahman builds machine-learning systems that ship — forecasting, fraud detection, and streaming ML, live on the cloud.">
 <meta property="og:title" content="Minhazur Rahman — Data Scientist & ML Engineer">
 <meta property="og:description" content="Models in production. Not in notebooks.">
 <meta property="og:type" content="website">
@@ -56,9 +56,7 @@ a:hover{text-decoration:underline}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 .fade-up{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes drawline{0%{stroke-dashoffset:620}55%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
-@keyframes dotpulse{0%,100%{r:5;opacity:1}50%{r:8;opacity:.55}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -73,9 +71,9 @@ nav{
   border-bottom:1px solid var(--line-soft);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-.nav-brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:600;font-size:16.5px;color:var(--text);letter-spacing:.01em}
+.nav-brand{font-family:var(--font-mono);font-weight:600;font-size:16px;color:var(--text);letter-spacing:.01em}
 .nav-brand:hover{text-decoration:none}
-.nav-brand svg{width:32px;height:32px;border-radius:8px}
+.nav-brand .gold{color:var(--gold)}
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{color:var(--muted);font-size:13.5px;font-weight:500;font-family:var(--font-mono)}
 .nav-links a:hover{color:var(--gold);text-decoration:none}
@@ -89,7 +87,7 @@ nav{
 /* ---------- hero ---------- */
 .hero{
   position:relative;
-  padding:104px 0 84px;
+  padding:108px 0 92px;
   background:
     radial-gradient(900px 480px at 78% 8%, rgba(242,169,59,.09) 0%, transparent 60%),
     radial-gradient(700px 400px at 8% 90%, rgba(255,122,26,.05) 0%, transparent 60%);
@@ -100,7 +98,7 @@ nav{
   background-size:56px 56px;
   mask-image:radial-gradient(720px 480px at 70% 30%,#000 0%,transparent 75%);
 }
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;position:relative}
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-family:var(--font-mono);font-size:12.5px;font-weight:400;letter-spacing:.08em;
@@ -111,7 +109,7 @@ nav{
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--live);animation:pulse 2.4s infinite}
 h1{
   font-family:var(--font-display);font-weight:700;
-  font-size:clamp(42px,5.8vw,72px);
+  font-size:clamp(42px,5.6vw,70px);
   line-height:1.02;letter-spacing:-.03em;margin-bottom:26px;
 }
 h1 .grad{
@@ -137,34 +135,25 @@ h1 .grad{
 .btn-ghost{background:transparent;color:var(--text);border:1px solid #3A3025}
 .btn-ghost:hover{border-color:var(--gold);background:rgba(242,169,59,.06)}
 
-/* ---------- tiger stage ---------- */
-.tiger-stage{position:relative;display:flex;flex-direction:column;align-items:center;user-select:none}
-.tiger-stage .tiger{
-  width:100%;max-width:360px;height:auto;cursor:pointer;
-  animation:bob 6s ease-in-out infinite;
-  filter:drop-shadow(0 24px 48px rgba(242,169,59,.14));
+/* ---------- terminal ---------- */
+.term{
+  background:#100D0B;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 40px 90px -24px rgba(0,0,0,.8),0 0 0 1px rgba(242,169,59,.05);
+  font-family:var(--font-mono);font-size:12.8px;
 }
-.eye{transition:transform .12s ease}
-.blink .eye{transform:scaleY(.1)}
-.pupil{transition:transform .08s linear}
-.spark{width:100%;max-width:380px;margin-top:-8px}
-.spark .line{stroke-dasharray:620;animation:drawline 5.2s cubic-bezier(.4,0,.2,1) infinite}
-.spark .enddot{animation:dotpulse 2.2s ease-in-out infinite}
-.bubble{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%) scale(.85);
-  background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
-  padding:10px 18px;font-family:var(--font-mono);font-size:13px;color:var(--gold);
-  white-space:nowrap;opacity:0;pointer-events:none;
-  transition:opacity .25s,transform .25s;box-shadow:0 12px 30px rgba(0,0,0,.5);
-}
-.bubble.show{opacity:1;transform:translateX(-50%) scale(1)}
-.bubble::after{
-  content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;
-  background:var(--panel-2);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  transform:translateX(-50%) rotate(45deg);
-}
-.mascot-tag{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;color:var(--faint)}
-.mascot-tag b{color:var(--gold);font-weight:600}
+.term-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line-soft);background:#151110}
+.term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.term-bar i:nth-child(1){background:#FF5F57}
+.term-bar i:nth-child(2){background:#FEBC2E}
+.term-bar i:nth-child(3){background:#28C840}
+.term-title{margin-left:10px;color:var(--faint);font-size:11.5px;letter-spacing:.04em}
+.term-body{padding:22px 24px;line-height:2.05;min-height:264px}
+.term-body .row{white-space:nowrap;overflow:hidden}
+.tp{color:var(--faint)}
+.tc{color:var(--text)}
+.tg{color:var(--live)}
+.ty{color:var(--gold)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--gold);vertical-align:-2px;animation:blink 1.1s step-end infinite}
 
 /* ---------- marquee ---------- */
 .marquee{
@@ -254,30 +243,6 @@ h2{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.8vw,46
 .more-arrow{color:var(--gold);font-weight:700;flex:none;transition:transform .2s}
 .more-item:hover .more-arrow{transform:translateX(4px)}
 
-/* ---------- mascot section ---------- */
-#bagh{
-  background:
-    radial-gradient(700px 420px at 18% 40%, rgba(242,169,59,.06) 0%, transparent 60%),
-    var(--bg);
-}
-.bagh-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
-.bagh-body p{font-size:15px;color:var(--muted);margin-bottom:15px}
-.bagh-body p strong{color:var(--text)}
-.bagh-name{font-family:var(--font-display);font-size:32px;font-weight:700;margin-bottom:4px;letter-spacing:-.02em}
-.bagh-name .bn{color:var(--gold);font-weight:500}
-.bagh-role{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:24px}
-.bagh-traits{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding-top:26px;border-top:1px solid var(--line-soft)}
-.trait{
-  font-family:var(--font-mono);font-size:11.5px;font-weight:600;
-  background:rgba(242,169,59,.07);border:1px solid rgba(242,169,59,.18);
-  color:var(--gold);border-radius:6px;padding:5px 13px;
-}
-.bagh-quote{
-  margin-top:24px;font-family:var(--font-display);font-size:20px;font-weight:500;
-  color:var(--text);border-left:2px solid var(--gold);padding-left:18px;line-height:1.5;
-}
-.bagh-hint{margin-top:16px;font-family:var(--font-mono);font-size:12px;color:var(--faint)}
-
 /* ---------- contact ---------- */
 #contact .inner{
   background:linear-gradient(160deg,var(--panel-2) 0%,#0F0C09 70%);
@@ -298,11 +263,10 @@ footer .gold{color:var(--gold)}
 /* ---------- responsive ---------- */
 @media(max-width:900px){
   .hero{padding:64px 0}
-  .hero-grid{grid-template-columns:1fr;gap:56px}
-  .tiger-stage .tiger{max-width:270px}
+  .hero-grid{grid-template-columns:1fr;gap:52px}
+  .term{font-size:11.5px}
   .do-grid{grid-template-columns:1fr}
   .work-grid{grid-template-columns:1fr}
-  .bagh-grid{grid-template-columns:1fr;gap:48px}
   .nav-links a:not(.nav-cta){display:none}
   #contact .inner{padding:56px 30px}
   .more-item{flex-wrap:wrap;gap:6px}
@@ -312,62 +276,13 @@ footer .gold{color:var(--gold)}
 </head>
 <body>
 
-<!-- Bagh tiger, defined once -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFAB42"/><stop offset="1" stop-color="#E67312"/>
-    </linearGradient>
-    <linearGradient id="furdark" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#C25A0C"/><stop offset="1" stop-color="#9E4508"/>
-    </linearGradient>
-  </defs>
-  <symbol id="bagh-mark" viewBox="0 0 260 230">
-    <!-- ears -->
-    <path d="M62 82 L88 30 L118 62 Z" fill="url(#fur)"/>
-    <path d="M198 82 L172 30 L142 62 Z" fill="url(#fur)"/>
-    <path d="M76 72 L88 46 L102 60 Z" fill="url(#furdark)"/>
-    <path d="M184 72 L172 46 L158 60 Z" fill="url(#furdark)"/>
-    <!-- head -->
-    <rect x="46" y="52" width="168" height="146" rx="64" fill="url(#fur)"/>
-    <!-- forehead stripes -->
-    <path d="M130 60 L120 90 H140 Z" fill="#131009"/>
-    <path d="M102 66 L95 90 L114 82 Z" fill="#131009"/>
-    <path d="M158 66 L165 90 L146 82 Z" fill="#131009"/>
-    <!-- cheek stripes -->
-    <path d="M47 108 L90 118 L47 128 Z" fill="#131009"/>
-    <path d="M51 142 L88 148 L51 158 Z" fill="#131009"/>
-    <path d="M213 108 L170 118 L213 128 Z" fill="#131009"/>
-    <path d="M209 142 L172 148 L209 158 Z" fill="#131009"/>
-    <!-- eyes -->
-    <g class="eye" style="transform-origin:104px 124px">
-      <path d="M82 124 Q104 108 126 124 Q104 136 82 124 Z" fill="#FFF4E0"/>
-      <circle class="pupil" cx="104" cy="123" r="6" fill="#131009"/>
-      <circle cx="106.5" cy="120.5" r="1.8" fill="#FFF4E0"/>
-    </g>
-    <g class="eye" style="transform-origin:156px 124px">
-      <path d="M134 124 Q156 108 178 124 Q156 136 134 124 Z" fill="#FFF4E0"/>
-      <circle class="pupil" cx="156" cy="123" r="6" fill="#131009"/>
-      <circle cx="158.5" cy="120.5" r="1.8" fill="#FFF4E0"/>
-    </g>
-    <!-- muzzle -->
-    <ellipse cx="130" cy="168" rx="35" ry="24" fill="#FFF4E0"/>
-    <path d="M130 157 L119 169 H141 Z" fill="#131009"/>
-    <path d="M130 169 v9" stroke="#131009" stroke-width="3.2" stroke-linecap="round"/>
-    <path d="M130 178 q-8 9 -18 6 M130 178 q8 9 18 6" stroke="#131009" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-  </symbol>
-</svg>
-
 <nav>
   <div class="wrap nav-inner">
-    <a class="nav-brand" href="#top" aria-label="Home">
-      <svg viewBox="0 0 260 230" aria-hidden="true"><use href="#bagh-mark"/></svg>
-      minhaz<span style="color:var(--gold)">.</span>
-    </a>
+    <a class="nav-brand" href="#top" aria-label="Home">minhaz<span class="gold">.</span></a>
     <div class="nav-links">
       <a href="#work">/work</a>
       <a href="#about">/about</a>
-      <a href="#bagh">/bagh</a>
+      <a href="#contact">/contact</a>
       <a class="nav-cta" href="mailto:minhazurrahman.ds@gmail.com">Get in touch</a>
     </div>
   </div>
@@ -395,14 +310,11 @@ footer .gold{color:var(--gold)}
         </a>
       </div>
     </div>
-    <div class="tiger-stage fade-up" style="animation-delay:.2s">
-      <div class="bubble" id="bagh-bubble">Where's the baseline?</div>
-      <svg class="tiger" id="bagh-tiger" viewBox="0 0 260 230" role="img" aria-label="Bagh the tiger — click him"><use href="#bagh-mark"/></svg>
-      <svg class="spark" viewBox="0 0 380 80" aria-hidden="true">
-        <path class="line" d="M10 66 L86 48 L150 58 L226 30 L300 38 L360 14" stroke="#F2A93B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle class="enddot" cx="360" cy="14" r="5" fill="#F2A93B"/>
-      </svg>
-      <span class="mascot-tag">That's <b>Bagh</b> — he's watching your cursor. Click him.</span>
+    <div class="fade-up" style="animation-delay:.2s">
+      <div class="term" aria-label="Terminal demo of live APIs">
+        <div class="term-bar"><i></i><i></i><i></i><span class="term-title">minhaz@prod: ~</span></div>
+        <div class="term-body" id="term-body"></div>
+      </div>
     </div>
   </div>
 </header>
@@ -524,45 +436,11 @@ footer .gold{color:var(--gold)}
   </div>
 </section>
 
-<section id="bagh">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">03 / brand mascot</div>
-      <h2>Meet Bagh. He doesn't believe your metrics either.</h2>
-    </div>
-    <div class="bagh-grid">
-      <div class="tiger-stage reveal">
-        <div class="bubble" id="bagh-bubble-2">Show me the run.</div>
-        <svg class="tiger" id="bagh-tiger-2" viewBox="0 0 260 230" role="img" aria-label="Bagh the tiger — click him"><use href="#bagh-mark"/></svg>
-        <svg class="spark" viewBox="0 0 380 80" aria-hidden="true">
-          <path class="line" d="M10 66 L86 48 L150 58 L226 30 L300 38 L360 14" stroke="#F2A93B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle class="enddot" cx="360" cy="14" r="5" fill="#F2A93B"/>
-        </svg>
-      </div>
-      <div class="bagh-body reveal d1">
-        <div class="bagh-name">Bagh <span class="bn">· বাঘ</span></div>
-        <div class="bagh-role">Chief Forecasting Officer · Resident Sceptic</div>
-        <p><strong>The backstory.</strong> Bagh grew up in the Sundarbans, where a tiger survives by reading patterns — tides, moonlight, the movement of deer. He was the only one who kept notes. One monsoon season he called the river's flood peak three days early, and the whole forest started coming to him with questions about the future.</p>
-        <p>These days he works alongside me in Chattogram, where he's traded stalking prey for stalking anomalies. He reviews every model before it ships — and he has vetoed more than one.</p>
-        <p><strong>The personality.</strong> Calm, patient, quietly confident — and completely allergic to hype. He doesn't believe a metric until he's seen the run that produced it, and he never trusts a model that hasn't beaten an honest baseline. If a forecast looks too good, Bagh assumes it's leakage.</p>
-        <div class="bagh-traits">
-          <span class="trait">patient stalker of anomalies</span>
-          <span class="trait">baseline-first</span>
-          <span class="trait">hype-proof stripes</span>
-          <span class="trait">sees 7 days ahead</span>
-        </div>
-        <p class="bagh-quote">"A good forecast is just patience, applied to data."</p>
-        <p class="bagh-hint">// click him — he has opinions</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="wrap">
     <div class="inner reveal">
       <div class="glow"></div>
-      <div class="sec-kicker">04 / one clear call to action</div>
+      <div class="sec-kicker">03 / one clear call to action</div>
       <h2>Let's ship something.</h2>
       <p class="sec-sub">I'm actively looking for Data Scientist / ML Engineer roles — remote or on-site, anywhere in the world. Relocation-ready and visa-sponsorship friendly (EU HSM / Blue Card eligible). If my work looks like what your team ships, let's talk — I reply within a day.</p>
       <div class="cta-row">
@@ -579,7 +457,7 @@ footer .gold{color:var(--gold)}
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Minhazur Rahman — plain HTML/CSS/JS, zero frameworks. Reviewed and approved by <span class="gold">Bagh</span>.</div>
+  <div class="wrap">© 2026 Minhazur Rahman — plain HTML/CSS/JS, zero frameworks, deployed from <span class="gold">main</span>.</div>
 </footer>
 
 <script>
@@ -596,55 +474,47 @@ footer .gold{color:var(--gold)}
   var track = document.getElementById('marquee-track');
   track.innerHTML += track.innerHTML;
 
-  /* Bagh: eyes follow cursor */
-  var tigers = [].slice.call(document.querySelectorAll('.tiger'));
-  if(!reduced){
-    var raf = null;
-    window.addEventListener('mousemove', function(ev){
-      if(raf) return;
-      raf = requestAnimationFrame(function(){
-        raf = null;
-        tigers.forEach(function(t){
-          var r = t.getBoundingClientRect();
-          var cx = r.left + r.width/2, cy = r.top + r.height*0.52;
-          var a = Math.atan2(ev.clientY - cy, ev.clientX - cx);
-          var d = Math.min(5, Math.hypot(ev.clientX - cx, ev.clientY - cy)/40);
-          var x = (Math.cos(a)*d).toFixed(1), y = (Math.sin(a)*d).toFixed(1);
-          t.querySelectorAll('.pupil').forEach(function(p){ p.style.transform = 'translate('+x+'px,'+y+'px)'; });
-        });
-      });
-    });
-  }
-
-  /* Bagh: ambient blink */
-  if(!reduced){
-    setInterval(function(){
-      tigers.forEach(function(t){ t.classList.add('blink'); });
-      setTimeout(function(){ tigers.forEach(function(t){ t.classList.remove('blink'); }); }, 140);
-    }, 4600);
-  }
-
-  /* Bagh: click → opinion */
-  var quotes = [
-    "Where's the baseline?",
-    "Show me the run.",
-    "If it looks too good, it's leakage.",
-    "Ship it. I've read the tests.",
-    "Patience. Then the pounce.",
-    "In Bagh we trust. Everyone else brings data.",
-    "Seasonality is not a vibe."
+  /* hero terminal: typed session */
+  var body = document.getElementById('term-body');
+  var lines = [
+    {type:'cmd', html:'<span class="tp">$</span> <span class="tc">curl fraud-api/predict -d @txn.json</span>'},
+    {type:'out', html:'<span class="ty">{"fraud_probability": 0.999, "flag": "FRAUD"}</span>'},
+    {type:'cmd', html:'<span class="tp">$</span> <span class="tc">curl forecast-api/predict -d @conditions.json</span>'},
+    {type:'out', html:'<span class="ty">{"predicted_units": 5.9, "demand": "MODERATE"}</span>'},
+    {type:'cmd', html:'<span class="tp">$</span> <span class="tc">status --all</span>'},
+    {type:'out', html:'<span class="tg">● 2 services live · CI green · drift nominal</span>'}
   ];
-  var qi = 0;
-  tigers.forEach(function(t){
-    var bubble = t.parentElement.querySelector('.bubble');
-    var timer = null;
-    t.addEventListener('click', function(){
-      bubble.textContent = quotes[qi++ % quotes.length];
-      bubble.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(function(){ bubble.classList.remove('show'); }, 2400);
+  function finish(){
+    var last = document.createElement('div');
+    last.className = 'row';
+    last.innerHTML = '<span class="tp">$</span> <span class="cursor"></span>';
+    body.appendChild(last);
+  }
+  if(reduced){
+    lines.forEach(function(l){
+      var el = document.createElement('div'); el.className='row'; el.innerHTML = l.html; body.appendChild(el);
     });
-  });
+    finish();
+  } else {
+    var i = 0;
+    function next(){
+      if(i >= lines.length){ finish(); return; }
+      var l = lines[i++];
+      var el = document.createElement('div'); el.className='row'; body.appendChild(el);
+      if(l.type === 'out'){ el.innerHTML = l.html; setTimeout(next, 420); return; }
+      /* type command char-by-char into a temp span, keep prompt */
+      var m = l.html.match(/^(<span class="tp">\$<\/span> )<span class="tc">([\s\S]*)<\/span>$/);
+      var prefix = m[1], text = m[2];
+      var span = document.createElement('span'); span.className = 'tc';
+      el.innerHTML = prefix; el.appendChild(span);
+      var j = 0;
+      (function typeChar(){
+        if(j < text.length){ span.textContent += text[j++]; setTimeout(typeChar, 22 + Math.random()*40); }
+        else { setTimeout(next, 300); }
+      })();
+    }
+    setTimeout(next, 700);
+  }
 })();
 </script>
 
