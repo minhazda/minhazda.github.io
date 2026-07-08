@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing · Minhazur Rahman</title>
+<meta name="description" content="Engineering write-ups from production ML systems — debugging stories, MLOps patterns, and honest post-mortems.">
+<link rel="canonical" href="https://minhazda.github.io/blog/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0908;--panel:#151110;--line:#272019;--line-soft:#1E1813;
+  --text:#F3EEE6;--muted:#A79C8B;--faint:#8A7F70;--gold:#F2A93B;
+  --font-display:'Space Grotesk',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#120D06}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:50;background:rgba(11,9,8,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-brand{font-family:var(--font-mono);font-weight:600;font-size:16px;color:var(--text)}
+.nav-brand:hover{text-decoration:none}.nav-brand .gold{color:var(--gold)}
+.nav-back{font-family:var(--font-mono);font-size:13.5px;color:var(--muted)}.nav-back:hover{color:var(--gold);text-decoration:none}
+header{padding:72px 0 28px}
+.kicker{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.08em;color:var(--gold);margin-bottom:14px}
+h1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4.6vw,44px);letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--muted)}
+.post{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:18px 0;transition:transform .15s,border-color .2s}
+.post:hover{transform:translateY(-3px);border-color:#3D3123;text-decoration:none}
+.post .date{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.post h2{font-family:var(--font-display);font-size:20px;color:var(--text);margin:6px 0 8px;letter-spacing:-.01em}
+.post p{color:var(--muted);font-size:14.5px}
+.post .read{font-family:var(--font-mono);font-size:13px;color:var(--gold);margin-top:12px;display:inline-block}
+footer{border-top:1px solid var(--line-soft);margin-top:56px;padding:30px 0 44px;color:var(--faint);font-family:var(--font-mono);font-size:12.5px}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+  <a class="nav-brand" href="../">minhaz<span class="gold">.</span></a>
+  <a class="nav-back" href="../">← back to site</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="kicker">/writing</div>
+  <h1>Engineering write-ups.</h1>
+  <p class="sub">Debugging stories and MLOps patterns from systems I run in production. No listicles — every post comes from a real repo with the commits to prove it.</p>
+</div></header>
+
+<main class="wrap">
+  <a class="post" href="kafka-silent-failure.html">
+    <span class="date">2026-07</span>
+    <h2>My Kafka producer said it delivered 500 messages. It delivered zero.</h2>
+    <p>A Kubernetes smoke test exposed a component failing while reporting success — confluent-kafka's flush() returns undelivered counts instead of raising. In distributed systems, silent success is worse than loud failure.</p>
+    <span class="read">read →</span>
+  </a>
+</main>
+
+<footer><div class="wrap">// written &amp; deployed from main · <a href="../">minhazda.github.io</a> · <a href="mailto:minhazurrahman.ds@gmail.com">minhazurrahman.ds@gmail.com</a></div></footer>
+</body>
+</html>

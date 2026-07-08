@@ -300,6 +300,7 @@ footer .gold{color:var(--gold)}
       <a href="#work">/work</a>
       <a href="#about">/about</a>
       <a href="#background">/background</a>
+      <a href="blog/">/writing</a>
       <a href="#contact">/contact</a>
       <a class="nav-cta" href="mailto:minhazurrahman.ds@gmail.com">Get in touch</a>
     </div>
@@ -389,7 +390,7 @@ footer .gold{color:var(--gold)}
       <div class="sec-kicker">02 / best work</div>
       <h2>Proof, not promises.</h2>
       <p class="sec-sub">Three of these are live right now — score a transaction, forecast demand, or scan a careers page yourself. Every number comes from a real, reproducible run.</p>
-      <p class="note-mono">// live demos scale to zero — the first request after idle takes ~10s to wake the container</p>
+      <p class="note-mono">// live demos scale to zero ($0/month infra) — the first request after idle takes ~30s to wake the container; the demo pages let you watch it happen</p>
     </div>
 
     <div class="work-grid">
@@ -401,7 +402,7 @@ footer .gold{color:var(--gold)}
         <p>Card-fraud detection on heavily imbalanced data: leakage-safe features shared between training and serving, threshold tuned on a held-out set, served with FastAPI + Prometheus, deployed via Terraform.</p>
         <div class="metrics"><span class="metric">ROC-AUC 0.90</span><span class="metric">PR-AUC ~8× base</span><span class="metric">terraform→cloud-run</span></div>
         <div class="work-links">
-          <a href="https://fraud-detection-api-ude5vos6lq-uc.a.run.app/" target="_blank" rel="noopener">live_demo →</a>
+          <a href="demo/fraud.html">live_demo →</a>
           <a href="https://github.com/minhazda/fraud-detection-mlops" target="_blank" rel="noopener">source</a>
         </div>
       </article>
@@ -414,7 +415,7 @@ footer .gold{color:var(--gold)}
         <p>End-to-end demand-forecasting MLOps pipeline: typed, tested, CI-gated, containerised, with Prometheus metrics and Evidently drift monitoring — deployed keylessly through Workload Identity Federation.</p>
         <div class="metrics"><span class="metric">MAE −40.8% vs base</span><span class="metric">drift monitoring</span><span class="metric">keyless CI/CD</span></div>
         <div class="work-links">
-          <a href="https://retail-forecasting-api-ude5vos6lq-uc.a.run.app/" target="_blank" rel="noopener">live_demo →</a>
+          <a href="demo/forecast.html">live_demo →</a>
           <a href="https://github.com/minhazda/synthetic-retail-mlops-pipeline" target="_blank" rel="noopener">source</a>
         </div>
       </article>

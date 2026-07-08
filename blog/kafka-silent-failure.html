@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Kafka producer said it delivered 500 messages. It delivered zero. · Minhazur Rahman</title>
+<meta name="description" content="A Kubernetes smoke test exposed a producer that failed while reporting success — confluent-kafka's flush() returns undelivered counts instead of raising. Diagnosis, fix, and lessons.">
+<link rel="canonical" href="https://minhazda.github.io/blog/kafka-silent-failure.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:title" content="My Kafka producer said it delivered 500 messages. It delivered zero.">
+<meta property="og:description" content="In distributed systems, silent success is worse than loud failure. A debugging story from a fraud-detection stream processor.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://minhazda.github.io/blog/kafka-silent-failure.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0908;--panel:#151110;--panel-2:#191411;--line:#272019;--line-soft:#1E1813;
+  --text:#F3EEE6;--muted:#A79C8B;--faint:#8A7F70;--gold:#F2A93B;--live:#3DDC97;
+  --font-display:'Space Grotesk',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#120D06}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:50;background:rgba(11,9,8,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-brand{font-family:var(--font-mono);font-weight:600;font-size:16px;color:var(--text)}
+.nav-brand:hover{text-decoration:none}.nav-brand .gold{color:var(--gold)}
+.nav-back{font-family:var(--font-mono);font-size:13.5px;color:var(--muted)}.nav-back:hover{color:var(--gold);text-decoration:none}
+header{padding:72px 0 20px}
+.meta{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;color:var(--faint);margin-bottom:18px}
+.meta .tag{color:var(--gold)}
+h1{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.02em;margin-bottom:10px}
+article{padding-bottom:24px}
+article h2{font-family:var(--font-display);font-size:22px;margin:38px 0 12px;letter-spacing:-.01em}
+article p{margin:14px 0;color:var(--muted)}
+article strong{color:var(--text)}
+article ol,article ul{margin:14px 0;padding-left:24px;color:var(--muted)}
+article li{margin:8px 0}
+pre{background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--text);margin:16px 0}
+code{font-family:var(--font-mono);font-size:.92em;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:5px;padding:1px 6px;color:var(--gold)}
+pre code{background:none;border:0;padding:0;color:inherit}
+.outro{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:20px 22px;margin:34px 0;font-size:15px;color:var(--muted)}
+footer{border-top:1px solid var(--line-soft);margin-top:40px;padding:30px 0 44px;color:var(--faint);font-family:var(--font-mono);font-size:12.5px}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+  <a class="nav-brand" href="../">minhaz<span class="gold">.</span></a>
+  <a class="nav-back" href="./">← /writing</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="meta">2026-07 · <span class="tag">#kafka</span> <span class="tag">#kubernetes</span> <span class="tag">#python</span> <span class="tag">#debugging</span></div>
+  <h1>My Kafka producer said it delivered 500 messages. It delivered zero.</h1>
+</div></header>
+
+<article><div class="wrap">
+<p>I was wiring a Kubernetes smoke test for a fraud-detection stream processor when I found the kind of bug that never shows up in tutorials and always shows up in production: a component that fails while reporting success.</p>
+
+<h2>The setup</h2>
+<p>The system is simple by streaming standards: a producer replays card transactions onto a Redpanda topic, a Python consumer validates each message against a strict schema, scores it with a LightGBM model, and routes it — scores to one topic, above-threshold alerts to another, malformed payloads to a dead-letter queue. Prometheus counters track every outcome.</p>
+<p>The CI test I was adding is the kind I now think every streaming repo needs: spin up a <strong>kind</strong> cluster (Kubernetes-in-Docker, free on GitHub runners), build and load the image, <code>kubectl apply</code> the whole stack, replay exactly 500 transactions — 5 of them deliberately malformed — and assert, straight from the pipeline's metrics endpoint:</p>
+<pre><code>sf_transactions_total{outcome="scored"}  == 500
+sf_transactions_total{outcome="invalid"} == 5</code></pre>
+<p>Everything deployed green. The producer Job showed <code>Completed</code>. And the assertion found... nothing. Not a wrong number — the counters didn't exist.</p>
+
+<h2>The hunt</h2>
+<p>The debug step dumped pod states and logs. Three clues, in the order I noticed them:</p>
+<ol>
+<li>Every pod was 36 seconds old. <code>kubectl apply -f k8s/</code> starts everything <strong>concurrently</strong> — there is no <code>depends_on</code> in Kubernetes.</li>
+<li>The consumer's logs showed <code>Connection refused</code> against the broker service for the first few seconds — then a clean connection, a clean subscription, and silence.</li>
+<li>The broker's logs showed it finishing its raft bootstrap <em>after</em> the producer Job had already completed.</li>
+</ol>
+<p>So the timeline was: producer started, broker wasn't up yet, producer "sent" 500 messages, producer exited successfully, broker came up, consumer connected to a topic containing nothing.</p>
+<p>How does a producer send 500 messages to a broker that isn't running — successfully?</p>
+
+<h2>The bug</h2>
+<p><code>confluent-kafka</code>'s producer is asynchronous: <code>produce()</code> queues messages client-side and a background thread delivers them. <code>flush(timeout)</code> waits for delivery. And here's the line I wrote:</p>
+<pre><code>def flush(self) -> None:
+    self._producer.flush(10)</code></pre>
+<p><code>flush()</code> doesn't raise when messages can't be delivered. It <strong>returns the number of messages still undelivered</strong> — and I threw that return value away. Broker unreachable → 500 messages sit in the queue → flush times out after 10 seconds → returns 500 → my wrapper returns None → process exits 0 → Kubernetes marks the Job <code>Completed</code>.</p>
+<p>Every layer of the stack reported success. The only honest component was the empty topic.</p>
+
+<h2>The fix</h2>
+<p>Four lines, plus a philosophy adjustment:</p>
+<pre><code>def flush(self) -> None:
+    remaining = self._producer.flush(30)
+    if remaining:
+        raise RuntimeError(
+            f"{remaining} messages not delivered before flush timeout"
+        )</code></pre>
+<p>Now the producer racing the broker <strong>crashes</strong> — which is exactly what I want, because the Job's <code>backoffLimit</code> turns that crash into retry-with-backoff, and the retry lands after the broker is ready. Kubernetes doesn't give you startup ordering; loud failure plus retries <em>is</em> the ordering primitive.</p>
+<p>The CI assertion changed too: polling the metrics endpoint until the expected counts appear (with a timeout), instead of <code>sleep 10</code> and hope. Fixed sleeps in integration tests are just race conditions with good PR.</p>
+
+<h2>What I took away</h2>
+<ol>
+<li><strong>Silent success is worse than loud failure.</strong> An exception gets retried, logged, alerted. An exit-0 with no side effects gets discovered weeks later as missing data, by someone else, with no stack trace.</li>
+<li><strong>Check the return value of every fire-and-forget API.</strong> Async client libraries often report delivery problems through returns, callbacks, or counters rather than exceptions — the ergonomic default is the dangerous one.</li>
+<li><strong>Infrastructure tests earn their keep on the first run.</strong> Unit tests passed throughout; the in-memory bus can't lose messages. Only deploying the real topology in CI — pods racing, brokers bootstrapping — could surface this. The kind cluster costs about two minutes per CI run and caught in an evening what production would have charged much more for.</li>
+</ol>
+<p>The failing run, the diagnosis, and the fix are all still in the PR history — I left them there on purpose: <a href="https://github.com/minhazda/streaming-fraud-detection" target="_blank" rel="noopener">github.com/minhazda/streaming-fraud-detection</a></p>
+
+<div class="outro">I'm a data scientist / ML engineer (MSc Data Science, University of Greenwich) building production ML systems in public — forecasting, fraud, streaming, and the MLOps around them. If your team runs ML in production in NL/DE, my GitHub is <a href="https://github.com/minhazda" target="_blank" rel="noopener">github.com/minhazda</a> and I'm open to relocation.</div>
+</div></article>
+
+<footer><div class="wrap">// written &amp; deployed from main · <a href="../">minhazda.github.io</a> · <a href="mailto:minhazurrahman.ds@gmail.com">minhazurrahman.ds@gmail.com</a></div></footer>
+</body>
+</html>
