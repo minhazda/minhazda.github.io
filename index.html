@@ -716,6 +716,22 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
   </section>
 
 
+  <!-- ================= WRITING ================= -->
+  <div class="exhibit rv"><div class="wrap">Exhibit E · Writing</div></div>
+  <section id="writing" class="sheet rv" aria-label="Writing">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>Writing</h2>
+        <a class="sec-aside" href="blog/">all posts →</a>
+      </div>
+      <a class="post-link rv" href="blog/kafka-silent-failure.html">
+        <span class="date">2026-07</span>
+        <h3>My Kafka producer said it delivered 500 messages. It delivered zero.</h3>
+        <p>A Kubernetes smoke test exposed a component failing while reporting success. In distributed systems, silent success is worse than loud failure — the diagnosis and fix are left in the PR history on purpose.</p>
+      </a>
+    </div>
+  </section>
+
   <!-- ================= VERIFICATION ================= -->
   <div class="exhibit rv"><div class="wrap">Exhibit F &middot; Verification</div></div>
   <section id="verification" class="sheet rv" aria-label="Verification">
@@ -777,22 +793,6 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
     </div>
   </section>
 
-  <!-- ================= WRITING ================= -->
-  <div class="exhibit rv"><div class="wrap">Exhibit E · Writing</div></div>
-  <section id="writing" class="sheet rv" aria-label="Writing">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <h2>Writing</h2>
-        <a class="sec-aside" href="blog/">all posts →</a>
-      </div>
-      <a class="post-link rv" href="blog/kafka-silent-failure.html">
-        <span class="date">2026-07</span>
-        <h3>My Kafka producer said it delivered 500 messages. It delivered zero.</h3>
-        <p>A Kubernetes smoke test exposed a component failing while reporting success. In distributed systems, silent success is worse than loud failure — the diagnosis and fix are left in the PR history on purpose.</p>
-      </a>
-    </div>
-  </section>
-
   <!-- ================= CONTACT ================= -->
   <section class="contact sheet-blue rv" id="contact" aria-label="Contact">
     <div class="wrap">
@@ -820,6 +820,7 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
       <div class="fnote" id="n6"><span class="n">6</span><span>CI spins up a kind Kubernetes cluster, deploys broker + scorer, replays 500 transactions (5 deliberately malformed) and asserts the Prometheus counters. The run that failed — and why — is written up in <a href="blog/kafka-silent-failure.html">the debugging story</a>.</span></div>
       <div class="fnote" id="n7"><span class="n">7</span><span>Champion/challenger gate: weekly challenger promotes only on ≥1% holdout-MAE improvement, champion metrics versioned in git. Source: <a href="https://github.com/minhazda/retail-demand-platform" target="_blank" rel="noopener"><code>retail-demand-platform</code></a>.</span></div>
       <div class="fnote" id="n8"><span class="n">8</span><span>Property-based tests (Hypothesis) simulate the null and assert the false-positive rate stays inside bounds under peeking. Source: <a href="https://github.com/minhazda/experiment-analysis-toolkit" target="_blank" rel="noopener"><code>experiment-analysis-toolkit</code></a>.</span></div>
+      <div class="fnote" id="n9"><span class="n">9</span><span>Availability, stated plainly. <strong>Bangladesh:</strong> citizen, full right to work, no sponsorship needed — on-site or hybrid in Dhaka or Chattogram. <strong>Remote:</strong> no sponsorship needed at all; I work from UTC+6, so a full European morning overlaps my afternoon and an evening shift here meets the US East Coast at the start of its day. I can invoice as a contractor or be hired through an employer-of-record. <strong>Relocation:</strong> sponsorship required; the MSc and salary band make me EU Blue Card (Germany) and Highly Skilled Migrant (Netherlands) eligible. All three are live options — the role decides, not the map.</span></div>
       <div class="fnote" id="n10"><span class="n">10</span><span>Untemplated Studio is a
         working service, not a case study: the site is live at
         <a href="https://untemplatedstudio.com" target="_blank" rel="noopener">untemplatedstudio.com</a>
@@ -828,7 +829,6 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
         It is pre-first-client &mdash; the portfolio pieces are demo builds for invented
         businesses and say so on the page. Listed for the engineering, not as a client
         record.</span></div>
-      <div class="fnote" id="n9"><span class="n">9</span><span>Availability, stated plainly. <strong>Bangladesh:</strong> citizen, full right to work, no sponsorship needed — on-site or hybrid in Dhaka or Chattogram. <strong>Remote:</strong> no sponsorship needed at all; I work from UTC+6, so a full European morning overlaps my afternoon and an evening shift here meets the US East Coast at the start of its day. I can invoice as a contractor or be hired through an employer-of-record. <strong>Relocation:</strong> sponsorship required; the MSc and salary band make me EU Blue Card (Germany) and Highly Skilled Migrant (Netherlands) eligible. All three are live options — the role decides, not the map.</span></div>
 
     </div>
   </footer>
