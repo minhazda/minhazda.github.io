@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MD Minhazur Rahman — ML Engineer. Models in production, not in notebooks.</title>
-<meta name="description" content="Portfolio of MD Minhazur Rahman — machine-learning engineer & automation specialist. Live ML services on GCP, baseline-anchored metrics, every number linked to the run that produced it. Relocating: NL · DE.">
+<meta name="description" content="Portfolio of MD Minhazur Rahman — machine-learning engineer & automation specialist. Live ML services on GCP, baseline-anchored metrics, every number linked to the run that produced it. Based in Bangladesh — available on-site, remote, or relocating.">
 <meta property="og:title" content="MD Minhazur Rahman — ML Engineer">
 <meta property="og:description" content="Models in production. Not in notebooks. Every number on this page links to the run that produced it.">
 <meta property="og:type" content="website">
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,700;0,800;1,400;1,700&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ============ tokens ============ */
 :root{
@@ -213,6 +213,19 @@ sup.fn a{font-family:var(--mono);font-size:.62em;font-weight:600;padding:2px 3px
 .colophon a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
 .colophon a:hover{color:var(--blue)}
 
+
+/* ============ verification table ============ */
+.vrow{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(.8rem,2.4vw,2rem);
+      padding:.95rem 0;border-top:1px solid var(--line)}
+.vrow:last-of-type{border-bottom:1px solid var(--line)}
+.vrow .claim{font-weight:600;color:var(--ink)}
+.vrow .proof{color:var(--ink-soft);font-size:.95rem}
+.vrow .proof code{font-family:var(--mono);font-size:.85em;background:var(--paper-tint);padding:1px 5px;border-radius:2px}
+.machine{margin-top:var(--s1);padding:var(--s1);background:var(--paper-tint);border-left:2px solid var(--blue);
+         font-size:.9rem;color:var(--ink-soft);max-width:78ch}
+.machine b{color:var(--ink)}
+@media(max-width:700px){.vrow{grid-template-columns:1fr;gap:.3rem}}
+
 /* ============ responsive ============ */
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -339,6 +352,8 @@ body::after{
   transition:opacity .6s ease-out;
 }
 .spot.on{opacity:1}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--blue);color:#fff;padding:10px 16px;border-radius:0 0 3px 0;font-weight:600}
+.skip:focus{left:0;text-decoration:none}
 main,header.masthead{position:relative;z-index:1}
 
 /* scroll progress */
@@ -400,9 +415,43 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
   .btn:hover,.entry:hover,.post-link:hover{transform:none}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "MD Minhazur Rahman",
+  "jobTitle": "Machine Learning Engineer",
+  "description": "Machine-learning engineer and automation specialist. Production ML services on GCP with baseline-anchored, publicly sourced metrics.",
+  "url": "https://minhazda.github.io/",
+  "image": "https://minhazda.github.io/assets/headshot-880.jpg",
+  "email": "mailto:minhazurrahman.ds@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chattogram",
+    "addressCountry": "BD"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Greenwich", "address": "London, United Kingdom" },
+    { "@type": "CollegeOrUniversity", "name": "Independent University, Chittagong" }
+  ],
+  "knowsAbout": [
+    "Machine learning engineering", "MLOps", "Demand forecasting",
+    "Fraud detection", "Time-series analysis", "Data engineering",
+    "Kafka stream processing", "Privacy-preserving synthetic data"
+  ],
+  "sameAs": [
+    "https://github.com/minhazda",
+    "https://www.linkedin.com/in/mohammadminhaz",
+    "https://orcid.org/0009-0008-9418-6614",
+    "https://scholar.google.com/citations?user=CQOSSHIAAAAJ",
+    "https://doi.org/10.5281/zenodo.19479285"
+  ]
+}
+</script>
 </head>
 <body>
 
+<a href="#top" class="skip">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <div class="spot" id="spot" aria-hidden="true"></div>
 
@@ -413,6 +462,7 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
       <a href="#work">Work</a>
       <a href="#practice">Practice</a>
       <a href="#background">Background</a>
+      <a href="#verification">Verification</a>
       <a href="blog/">Writing</a>
       <a class="nav-contact" href="#contact">Contact</a>
     </nav>
@@ -438,10 +488,10 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
           <a class="btn btn-ghost" href="https://github.com/minhazda" target="_blank" rel="noopener">GitHub</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/mohammadminhaz" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-        <p class="hero-note rv d3">3+ years data &amp; infrastructure background · MSc Data Science (Merit), University of Greenwich, London · dissertation published with a DOI<sup class="fn"><a href="#n4" aria-label="footnote 4">4</a></sup> · based in Chattogram, BD → relocating to the Netherlands or Germany.</p>
+        <p class="hero-note rv d3">3+ years data &amp; infrastructure background · MSc Data Science (Merit), University of Greenwich, London · dissertation published with a DOI<sup class="fn"><a href="#n4" aria-label="footnote 4">4</a></sup> · based in Chattogram, Bangladesh — open to on-site, remote and relocation roles.<sup class="fn"><a href="#n9" aria-label="footnote 9">9</a></sup></p>
       </div>
       <figure class="figure rv d1">
-        <span class="stamp" id="stamp" aria-hidden="true">Open to work · NL / DE</span>
+        <span class="stamp" id="stamp">Open to work</span>
         <div class="figure-frame">
           <picture>
             <source type="image/webp" srcset="assets/headshot-440.webp 440w, assets/headshot-880.webp 880w" sizes="(max-width:900px) 90vw, 420px">
@@ -476,7 +526,7 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
           <a class="endpoint" href="https://retail-forecasting-api-ude5vos6lq-uc.a.run.app/" target="_blank" rel="noopener">retail-forecasting-api…run.app →</a>
         </div>
       </div>
-      <p class="proof-foot rv">Both scale to zero between visitors — a deliberate $0/month deployment, so the first request wakes the container in ~30&nbsp;s.<sup class="fn"><a href="#n3" aria-label="footnote 3">3</a></sup> Patience is cheaper than idle compute.</p>
+      <p class="proof-foot rv">Both scale to zero between visitors — a deliberate $0/month deployment. This page pings them the moment it loads, so by the time you read this they are usually already warm; on an unlucky cold start the first request takes ~30&nbsp;s.<sup class="fn"><a href="#n3" aria-label="footnote 3">3</a></sup> Patience is cheaper than idle compute.</p>
     </div>
   </section>
 
@@ -651,6 +701,68 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
     </div>
   </section>
 
+
+  <!-- ================= VERIFICATION ================= -->
+  <div class="exhibit rv"><div class="wrap">Exhibit F &middot; Verification</div></div>
+  <section id="verification" class="sheet rv" aria-label="Verification">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>Verification</h2>
+        <span class="sec-aside">check it without asking me</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">Both services are running</span>
+        <span class="proof">A <code>GET</code> on either <code>/health</code> returns
+          <code>{"status":"ok","model_loaded":true}</code> &mdash;
+          <a href="https://fraud-detection-api-ude5vos6lq-uc.a.run.app/health" target="_blank" rel="noopener">fraud</a> &middot;
+          <a href="https://retail-forecasting-api-ude5vos6lq-uc.a.run.app/health" target="_blank" rel="noopener">forecasting</a>.
+          Both were pinged automatically when you opened this page, so a cold start is
+          usually already out of the way.</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">The publication is real and indexed</span>
+        <span class="proof">Peer-visible preprint, co-authored with my dissertation supervisor and resolvable through the DOI system rather than a
+          file on this site: <a href="https://doi.org/10.5281/zenodo.19479285" target="_blank" rel="noopener">10.5281/zenodo.19479285</a>.</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">The author is the same person</span>
+        <span class="proof"><a href="https://orcid.org/0009-0008-9418-6614" target="_blank" rel="noopener">ORCID 0009-0008-9418-6614</a> &middot;
+          <a href="https://scholar.google.com/citations?user=CQOSSHIAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot;
+          <a href="https://github.com/minhazda" target="_blank" rel="noopener">GitHub</a> &middot;
+          <a href="https://www.linkedin.com/in/mohammadminhaz" target="_blank" rel="noopener">LinkedIn</a>.</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">Every metric traces to a run</span>
+        <span class="proof">Each number in the notes below names the repository that produced it, and
+          each repository is public with its CI history intact. No screenshots, no unlabelled accuracy.</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">The degree</span>
+        <span class="proof">MSc Data Science, Pass with Merit, University of Greenwich (Sep 2024 &ndash; Jan 2026).
+          Dissertation graded 70%. Transcript and certificate on request.</span>
+      </div>
+
+      <div class="vrow rv">
+        <span class="claim">Academic reference</span>
+        <span class="proof">Dr Tuan Vuong, MSc dissertation supervisor, University of Greenwich.
+          Contact details are on the <a href="https://github.com/minhazda/cv/raw/main/CV_MD_MinhazurRahman.pdf" target="_blank" rel="noopener">CV</a>;
+          please reach out to me first so I can let him know to expect you.</span>
+      </div>
+
+      <p class="machine rv"><b>For automated screeners.</b> This page carries schema.org
+        <code>Person</code> markup with <code>sameAs</code> links to every profile above, so the
+        identity resolves to one entity rather than four unconnected accounts. Every claim on this
+        site is either checkable at a third-party host &mdash; doi.org, orcid.org,
+        scholar.google.com, github.com &mdash; or served live from the deployment it describes.
+        Nothing here asks you to take my word for it.</p>
+    </div>
+  </section>
+
   <!-- ================= WRITING ================= -->
   <div class="exhibit rv"><div class="wrap">Exhibit E · Writing</div></div>
   <section id="writing" class="sheet rv" aria-label="Writing">
@@ -671,13 +783,13 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
   <section class="contact sheet-blue rv" id="contact" aria-label="Contact">
     <div class="wrap">
       <h2 class="rv">Let's ship something that survives contact with production.</h2>
-      <p class="rv d1">I'm looking for ML Engineer / MLOps / Data Scientist roles with English-speaking teams in the <strong>Netherlands or Germany</strong>. If your team runs models in production — or wants to start — the fastest way to evaluate me is to open the demos above and read the code.</p>
+      <p class="rv d1">I'm looking for ML Engineer / MLOps / Data Scientist roles — <strong>on-site in Dhaka or Chattogram</strong>, <strong>remote</strong> with any team whose day overlaps UTC+6, or <strong>relocation</strong> to the EU. If your team runs models in production — or wants to start — the fastest way to evaluate me is to open the demos above and read the code.</p>
       <div class="cta-row rv d2">
         <a class="btn btn-primary" href="mailto:minhazurrahman.ds@gmail.com">minhazurrahman.ds@gmail.com</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/mohammadminhaz" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/minhazda/cv/raw/main/CV_MD_MinhazurRahman.pdf" target="_blank" rel="noopener">CV (PDF)</a>
       </div>
-      <p class="visa rv d3">Visa: sponsorship required — HSM (NL) / EU Blue Card (DE) eligible, relocation-ready. Replies within a day, usually faster.</p>
+      <p class="visa rv d3">Right to work — <strong>Bangladesh:</strong> citizen, no sponsorship needed. <strong>Remote:</strong> no sponsorship needed; contractor or employer-of-record. <strong>Relocation:</strong> sponsorship required, EU Blue Card (DE) and HSM (NL) eligible.<sup class="fn"><a href="#n9" aria-label="footnote 9">9</a></sup> Replies within a day, usually faster.</p>
     </div>
   </section>
 
@@ -689,18 +801,19 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
       <div class="fnote" id="n1"><span class="n">1</span><span>House rule: no number appears on this page without a named baseline and a public source. If you find one that breaks the rule, email me and I'll fix it — publicly.</span></div>
       <div class="fnote" id="n2"><span class="n">2</span><span>MAE −40.8% (RMSE −47.3%) vs a seasonal-naïve baseline, reproducible run in <a href="https://github.com/minhazda/synthetic-retail-mlops-pipeline" target="_blank" rel="noopener"><code>synthetic-retail-mlops-pipeline</code></a>. On real data (UCI Online Retail II, 1.07M transactions): −26.3% pooled MAE across 47/49 series in <a href="https://github.com/minhazda/real-retail-forecasting" target="_blank" rel="noopener"><code>real-retail-forecasting</code></a>.</span></div>
       <div class="fnote" id="n3"><span class="n">3</span><span>Cloud Run, <code>min-instances = 0</code>. An always-warm container costs ~$15/month to serve a demo nobody queries at 3 a.m.; scale-to-zero is the engineering-honest choice for this workload.</span></div>
-      <div class="fnote" id="n4"><span class="n">4</span><span>“Privacy-preserving synthetic data generation for retail demand forecasting,” first-author preprint, Zenodo, <a href="https://doi.org/10.5281/zenodo.19479285" target="_blank" rel="noopener">DOI 10.5281/zenodo.19479285</a>.</span></div>
+      <div class="fnote" id="n4"><span class="n">4</span><span>“Synthetic Retail Time-Series for Privacy-Preserving Demand Forecasting: An End-to-End Pipeline, Benchmark Evaluation, and Privacy Analysis,” preprint with T. Vuong (dissertation supervisor), Zenodo, <a href="https://doi.org/10.5281/zenodo.19479285" target="_blank" rel="noopener">DOI 10.5281/zenodo.19479285</a>.</span></div>
       <div class="fnote" id="n5"><span class="n">5</span><span>PR-AUC 0.49 against a base fraud rate that makes random guessing worth ~0.06 — with ROC-AUC 0.90. On imbalanced data, accuracy is a vanity metric; lift over base rate is the honest one. Source: <a href="https://github.com/minhazda/fraud-detection-mlops" target="_blank" rel="noopener"><code>fraud-detection-mlops</code></a>.</span></div>
       <div class="fnote" id="n6"><span class="n">6</span><span>CI spins up a kind Kubernetes cluster, deploys broker + scorer, replays 500 transactions (5 deliberately malformed) and asserts the Prometheus counters. The run that failed — and why — is written up in <a href="blog/kafka-silent-failure.html">the debugging story</a>.</span></div>
       <div class="fnote" id="n7"><span class="n">7</span><span>Champion/challenger gate: weekly challenger promotes only on ≥1% holdout-MAE improvement, champion metrics versioned in git. Source: <a href="https://github.com/minhazda/retail-demand-platform" target="_blank" rel="noopener"><code>retail-demand-platform</code></a>.</span></div>
       <div class="fnote" id="n8"><span class="n">8</span><span>Property-based tests (Hypothesis) simulate the null and assert the false-positive rate stays inside bounds under peeking. Source: <a href="https://github.com/minhazda/experiment-analysis-toolkit" target="_blank" rel="noopener"><code>experiment-analysis-toolkit</code></a>.</span></div>
+      <div class="fnote" id="n9"><span class="n">9</span><span>Availability, stated plainly. <strong>Bangladesh:</strong> citizen, full right to work, no sponsorship needed — on-site or hybrid in Dhaka or Chattogram. <strong>Remote:</strong> no sponsorship needed at all; I work from UTC+6, so a full European morning overlaps my afternoon and an evening shift here meets the US East Coast at the start of its day. I can invoice as a contractor or be hired through an employer-of-record. <strong>Relocation:</strong> sponsorship required; the MSc and salary band make me EU Blue Card (Germany) and Highly Skilled Migrant (Netherlands) eligible. All three are live options — the role decides, not the map.</span></div>
 
     </div>
   </footer>
 
   <div class="colophon">
     <div class="wrap colophon-in">
-      <span>© 2026 MD Minhazur Rahman · Chattogram, BD → NL/DE</span>
+      <span>© 2026 MD Minhazur Rahman · Chattogram, Bangladesh</span>
       <span>Set in Besley, Schibsted Grotesk &amp; Spline Sans Mono. No fabricated numbers.</span>
     </div>
   </div>
@@ -711,6 +824,31 @@ html.js .exhibit.rv.in .wrap::after{transform:scaleX(1)}
 document.documentElement.classList.add('js');
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  // ---- wake the demos -----------------------------------------------------
+  // Both services run at min-instances=0, so the first caller pays a ~30s cold
+  // start. Pinging on load starts the container early; three staggered pings
+  // cover a slow start without hammering anything.
+  //
+  // Deliberately silent. Cloud Run sends no CORS headers here, so a no-cors
+  // fetch returns an opaque response with status 0 - the page cannot tell a
+  // healthy 200 from a cold-start 503, and must not pretend otherwise. The
+  // footer states what is true (we ping) rather than what we cannot verify.
+  (function(){
+    var health = [
+      'https://fraud-detection-api-ude5vos6lq-uc.a.run.app/health',
+      'https://retail-forecasting-api-ude5vos6lq-uc.a.run.app/health'
+    ];
+    function ping(){
+      health.forEach(function(url){
+        fetch(url, {mode:'no-cors', cache:'no-store'}).catch(function(){});
+      });
+    }
+    ping();
+    setTimeout(ping, 6000);
+    setTimeout(ping, 18000);
+  })();
 
   // scroll reveals
   var io = new IntersectionObserver(function(es){
